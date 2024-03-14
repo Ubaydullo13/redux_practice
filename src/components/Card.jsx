@@ -2,12 +2,13 @@
 
 function Card(props) {
     const {title, author, language, country, year, imageLink} = props.book;
+    const {click, exist} = props
   return (
     <div className="card bg-base-100 shadow-xl">
   <div className="card-body">
     <div className="flex justify-between">
     <h2 className="card-title">{title}</h2>
-    <i className="fa-regular fa-star"></i>
+    <i onClick={() => {click(props.book, exist)}} className={`${exist ? 'fa-solid' : 'fa-regular'} fa-star cursor-pointer text-lg text-orange-500`}></i>
     </div>
     
     <p className="font-medium">{author}</p>
